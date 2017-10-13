@@ -6,16 +6,26 @@
 ### 使用 ###
 
 ```go
-if err := goip.SetDBPath("ip数据库路径");err!=nil {
-  panic(err)
+package main
+
+import (
+	"fmt"
+
+	"github.com/jiazhoulvke/goip"
+)
+
+func main() {
+	if err := goip.SetDBPath("ip数据库路径"); err != nil {
+		panic(err)
+	}
+	location, err := goip.Find("8.8.8.8")
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(location.Country)  //国家
+	fmt.Println(location.Province) //省份
+	fmt.Println(location.City)     //城市
+	fmt.Println(location.District) //区县
 }
-location, err:= goip.Find("8.8.8.8")
-if err!=nil {
-  panic(err)
-}
-fmt.Println(location.Country)
-fmt.Println(location.Province)
-fmt.Println(location.City)
-fmt.Println(location.District)
 ```
 
