@@ -152,23 +152,3 @@ func IntToIPv4(ipInt int) string {
 	ip4 := ipInt & 0xff
 	return fmt.Sprintf("%d.%d.%d.%d", ip1, ip2, ip3, ip4)
 }
-
-//byteSliceCompare 比较两个[]byte类型的变量之间的大小 1:a>b -1:a<b 0:a=b
-func byteSliceCompare(a []byte, b []byte) int {
-	for i := 0; i < len(a); i++ {
-		x := a[i]
-		if len(b)-1 < i {
-			return 1
-		}
-		y := b[i]
-		if x > y {
-			return 1
-		} else if x < y {
-			return -1
-		}
-	}
-	if len(b) > len(a) {
-		return -1
-	}
-	return 0
-}
